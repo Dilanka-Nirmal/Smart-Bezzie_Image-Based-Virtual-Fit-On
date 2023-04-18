@@ -6,6 +6,9 @@ import torch
 
 print('?')
 
+# Converts a Tensor into a Numpy array
+# |imtype|: the desired type of the converted numpy array
+
 
 def tensor2im(image_tensor, imtype=np.uint8, normalize=True):
     if isinstance(image_tensor, list):
@@ -83,6 +86,12 @@ def mkdirs(paths):
 def mkdir(path):
     if not os.path.exists(path):
         os.makedirs(path)
+
+###############################################################################
+# Code from
+# https://github.com/ycszen/pytorch-seg/blob/master/transform.py
+# Modified so it complies with the Citscape label map colors
+###############################################################################
 
 
 def uint82bin(n, count=8):
